@@ -16,12 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from students.views import home
+from django.http import HttpResponse
 from students.views import home, student_list, student_detail 
-
+def teachers(request):
+     return HttpResponse("<h1>Liste des enseignants</h1>") 
+def courses(request):
+     return HttpResponse("<h1>Liste des cours</h1>") 
+def about(request): 
+    return HttpResponse("<h1>Présentation de notre école</h1>")
 urlpatterns = [
-    path('admin/', admin.site.urls),
-  path('', home), 
-  path('students/', student_list),
-  path('students/<int:id>/', student_detail),
-]
+      path('admin/', admin.site.urls), 
+      path('', home, name='home'),
+     path('students/', student_list, name='student_list'), 
+     path('students/<int:id>/', student_detail, name='student_detail'), 
+     path('teachers/', teachers, name='teachers'),
+       path('courses/', courses, name='courses'), 
+       path('about/', about, name='about'), ]
