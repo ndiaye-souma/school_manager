@@ -17,7 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
-from students.views import home, student_list, student_detail 
+from students.views import (home,   
+    student_list,
+    student_detail,
+    students_by_class,
+    teacher_list,
+    about)
 def teachers(request):
      return HttpResponse("<h1>Liste des enseignants</h1>") 
 def courses(request):
@@ -30,7 +35,9 @@ urlpatterns = [
     path('', home, name='home'),
     path('students/', student_list, name='student_list'),
     path('students/<int:id>/', student_detail, name='student_detail'),
-    path('teachers/', teachers, name='teachers'),
+    path('teachers/', teacher_list, name='teacher_list'), 
     path('courses/', courses, name='courses'),
     path('about/', about, name='about'),
+    path('students/classe/<str:classe>/', students_by_class, 
+     name='students_by_class'), 
 ]
