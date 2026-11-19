@@ -1,5 +1,6 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
+from .models import Student
 
 STUDENTS = [
 {"id": 1, "first_name": "Awa", "last_name": "Diop", "classe": "L1", "active": True},
@@ -18,7 +19,8 @@ def home(request):
     return render(request, "students/home.html")
 
 def student_list(request):
-    context = {"students": STUDENTS}
+    students =students.objects.all()
+    context = {"students": students }
     return render(request, "students/student_list.html", context)
 
 def student_detail(request, id):
