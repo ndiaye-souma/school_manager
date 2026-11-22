@@ -10,10 +10,11 @@
     <header> 
         <strong>School Manager</strong> 
         <nav> 
-          {% url 'home' as home_url %} 
-    {% url 'student_list' as students_url %} 
-    {% url 'teacher_list' as teachers_url %} 
-    {% url 'about' as about_url %} 
+      {% url 'pages:home' as home_url %}
+    {% url 'students:list' as students_url %}
+    {% url 'teachers:list' as teachers_url %}
+    {% url 'pages:about' as about_url %}
+
   
     <a href="{{ home_url }}" 
        {% if request.path == home_url %}class="active"{% endif %} 
