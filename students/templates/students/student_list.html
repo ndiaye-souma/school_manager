@@ -3,6 +3,12 @@
  School Manager{% endblock %} 
    {% block content %}    
     <h1>Liste des étudiants</h1> 
+    <form method="get">
+    <input type="text" name="q" value="{{ query }}"
+           placeholder="Nom ou prénom">
+    <button type="submit">Rechercher</button>
+</form>
+
         <p>{{ students|length }} étudiant{{ students|length|pluralize }}</p> 
             <table> 
                         <tr> 
