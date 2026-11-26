@@ -67,7 +67,7 @@ def student_create(request):
     )
 
 
-# Modifier un étudiant
+
 def student_update(request, id):
     student = get_object_or_404(Student, id=id)
 

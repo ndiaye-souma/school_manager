@@ -3,7 +3,7 @@
 {% block title %}{{ student.first_name }} {{ student.last_name }}{% endblock %} 
   
 {% block content %} 
-    <a href="{% url 'student_list' %}">← Retour à la liste</a> 
+    <a href="{% url 'students:list' %}">Retour à la liste des étudiants</a>
     <a href="{% url 'students:update' student.id %}">Modifier</a>
     <h1>{{ student.first_name }} {{ student.last_name|upper }}</h1> 
     <p>Numéro : {{ student.id }}</p> 

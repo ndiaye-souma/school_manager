@@ -30,6 +30,9 @@
     >À propos</a> 
         </nav> 
     </header> 
+    {% for message in messages %} 
+<p class="message {{ message.tags }}">{{ message }}</p> 
+{% endfor %}
   
     <main> 
         {% block content %}{% endblock %} 

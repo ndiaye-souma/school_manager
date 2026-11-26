@@ -14,10 +14,9 @@ class StudentForm(forms.ModelForm):
             "birth_date",
             "active",
         ]
-        widgets = {
-            "birth_date": forms.DateInput(
-                attrs={"type": "date"},
-                format="%Y-%m-%d"
-            ),
-    
-        }
+        def clean_phone(self): 
+            phone = self.cleaned_data["phone"].replace(" ", "") 
+            if phone and (not phone.isascii() or 
+                      not phone.isdigit() or len(phone) != 9): 
+                raise forms.ValidationError("Saisir 9 chiffres.") 
+            return phone 
