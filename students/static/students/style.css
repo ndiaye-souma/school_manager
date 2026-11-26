@@ -22,3 +22,19 @@ header a.active {
     font-weight: bold; 
     border-bottom: 2px solid #f2a541; 
 } 
+.field { margin-bottom: 14px; } 
+.field label { display: block; font-weight: bold; margin-bottom: 4px; } 
+.field input, .field select { 
+    padding: 8px; width: 320px; 
+    border: 1px solid #E6DACE; border-radius: 4px; 
+} 
+.field input[type="checkbox"] { width: auto; } 
+.errorlist { color: #a12a1e; margin: 4px 0 0; padding-left: 18px; } 
+button { 
+    background: #4C311E; color: white; border: none; 
+    padding: 10px 18px; border-radius: 4px; cursor: pointer; 
+} 
+.btn-danger { background: #a12a1e; } 
+.message { padding: 10px 14px; border-radius: 4px; } 
+.message.success { background: #F5EBE0; color: #4C311E; } 
+.message.error { background: #fce9e7; color: #a12a1e; } 

@@ -4,7 +4,8 @@
   
 {% block content %} 
     <h1>Enseignants</h1> 
-    <p>{{ teachers|length }} enseignant{{ teachers|length|pluralize }}</p> 
+    <p>{{ teachers|length }} enseignant{{ teachers|length|pluralize }}</p>
+    <p><a href="{% url 'teachers:create' %}">+ Ajouter un enseignant</a></p>  
     <table> 
         <tr><th>Prénom</th><th>Nom</th><th>Matière</th></tr> 
         {% for teacher in teachers %} 
