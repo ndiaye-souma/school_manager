@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'students',
     "pages",
     "teachers",
+    "accounts",
    
     ]
 LOGIN_URL = "accounts:login" 
