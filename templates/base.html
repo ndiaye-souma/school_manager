@@ -28,6 +28,16 @@
     <a href="{{ about_url }}" 
        {% if request.path == about_url %}class="active"{% endif %} 
     >À propos</a> 
+
+    {% if user.is_authenticated %} 
+    <span>Bonjour {{ user.username }}</span> 
+    <form method="post" action="{% url 'accounts:logout' %}"> 
+        {% csrf_token %} 
+        <button type="submit">Se déconnecter</button> 
+    </form> 
+{% else %} 
+    <a href="{% url 'accounts:login' %}">Se connecter</a> 
+{% endif %} 
         </nav> 
     </header> 
     {% for message in messages %} 

@@ -1,0 +1,12 @@
+{% extends "base.html" %} 
+{% block content %} 
+<h1>Connexion à School Manager</h1> 
+<form method="post"> 
+    {% csrf_token %} 
+    <label for="username">Nom d'utilisateur</label> 
+    <input id="username" name="username" required> 
+    <label for="password">Mot de passe</label> 
+    <input id="password" name="password" type="password" required> 
+    <button type="submit">Se connecter</button> 
+</form> 
+{% endblock %} 

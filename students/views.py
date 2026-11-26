@@ -4,9 +4,12 @@ from .models import Student
 from django.shortcuts import redirect
 from django.contrib import messages
 from .forms import StudentForm 
+from django.contrib.auth.decorators import login_required
 
-
-# Liste des étudiants avec recherche
+from django.contrib.auth.decorators import permission_required 
+from django.contrib.auth.decorators import login_required 
+ 
+ 
 def student_list(request):
     query = request.GET.get("q", "")
     students = Student.objects.all()
@@ -25,15 +28,12 @@ def student_list(request):
     return render(request, "students/student_list.html", context)
 
 
-# Détail d'un étudiant
-def student_detail(request, id):
-    student = get_object_or_404(Student, id=id)
 
-    context = {
-        "student": student
-    }
-
-    return render(request, "students/student_detail.html", context)
+@login_required 
+def student_detail(request, id): 
+    student = get_object_or_404(Student, id=id) 
+    return render(request, "students/student_detail.html", 
+                  {"student": student})
 
 
 # Filtrer les étudiants par classe
@@ -47,8 +47,9 @@ def students_by_class(request, classe):
     return render(request, "students/student_list.html", context)
 
 
-# Ajouter un étudiant
-def student_create(request):
+@login_required 
+@permission_required("students.add_student", raise_exception=True) 
+def student_create(request): 
     if request.method == "POST":
         form = StudentForm(request.POST)
 

@@ -11,8 +11,11 @@
     <p>Téléphone : {{ student.phone|default:"Non renseigné" }}</p> 
     <p>Statut : {% if student.active %}Actif{% else %}Inactif{% endif %}</p> 
     <p> 
+    {% if perms.students.change_student %} 
     <a href="{% url 'students:update' student.id %}">Modifier</a> 
-    · 
+{% endif %} 
+{% if perms.students.delete_student %} 
     <a href="{% url 'students:delete' student.id %}">Supprimer</a> 
+{% endif %} 
 </p> 
 {% endblock %} 

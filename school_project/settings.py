@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'students',
     "pages",
     "teachers",
-]
+   
+    ]
+LOGIN_URL = "accounts:login" 
 
 
 MIDDLEWARE = [

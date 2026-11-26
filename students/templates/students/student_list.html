@@ -7,9 +7,9 @@
 <h1>Liste des étudiants</h1>
 
 <p>
-    <a href="{% url 'students:create' %}">
-        + Inscrire un étudiant
-    </a>
+    {% if perms.students.add_student %} 
+    <a href="{% url 'students:create' %}">Inscrire</a> 
+{% endif %} 
 </p>
 
 <form method="get">
